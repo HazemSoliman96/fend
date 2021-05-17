@@ -1,16 +1,31 @@
 function handleSubmit(event) {
-    event.preventDefault()
+  event.preventDefault()
+  const formText = document.getElementById('url').value;
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
+if(Client.checkForUrl(formText)) {
+  fetch("http://localhost:8081/url", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({url: formText}),
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('text').innerHTML = 'text: ' + data.sentence_list[0].text;
+    document.getElementById('model').innerHTML = 'model: ' + data.model;
+    document.getElementById('score_tag').innerHTML = 'score_tag: ' + data.score_tag;
+    document.getElementById('agreement').innerHTML = 'agreement: ' + data.agreement;
+    document.getElementById('subjectivity').innerHTML = 'subjectivity: ' + data.subjectivity;
+    document.getElementById('confidence').innerHTML = 'confidence: ' + data.confidence;
+    document.getElementById('irony').innerHTML = 'irony: ' + data.irony;
+  });
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+  } else {
+    alert('Please enter valid url');
+    document.getElementById('results').innerHTML = 'Not a valid url';
+  }
 }
 
-export { handleSubmit }
+export { handleSubmit };

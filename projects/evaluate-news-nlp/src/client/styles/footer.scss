@@ -1,0 +1,14 @@
+$color-background: #363333;
+$color: #e7e7e7;
+
+footer {
+  background: $color-background;
+  color: $color;
+  height: 30px;
+  position: relative;
+}
+
+footer p {
+  position: absolute;
+  top: 50%;
+}
