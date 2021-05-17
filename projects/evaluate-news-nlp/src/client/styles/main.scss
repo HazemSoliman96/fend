@@ -1,5 +1,18 @@
 $color: #d3d3d3;
+$results-background: #000000;
+$results-color: #ffffff;
 
 body {
   background-color: $color;
+}
+
+#results {
+  background-color: $results-background;
+}
+
+p {
+  color: $results-color;
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
 }
