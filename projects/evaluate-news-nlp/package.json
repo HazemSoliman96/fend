@@ -1,28 +1,42 @@
 {
-  "name": "example-project",
+  "name": "evaluate-articles-with-nlp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
+    "build-dev": "webpack serve  --config webpack.dev.js --open"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "news",
+    "nlp"
+  ],
+  "author": "Hazem Soliman",
+  "license": "MIT",
+  "description": "Evaluate articles with nlp using meaning cloud sentimental public api",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5"
+    "node-fetch": "^2.6.1",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
-    "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack-dev-server": "^3.7.2"
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "*",
+    "css-loader": "^5.2.4",
+    "css-minimizer-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.0",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0",
+    "superset": "^2.0.1",
+    "webpack-dev-server": "^4.0.0-beta.0"
   }
 }
